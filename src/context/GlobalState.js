@@ -31,6 +31,8 @@ export const GlobalProvider = ({ children }) => {
       type: "DELETE_TRANSACTION",
       payload: id,
     });
+    const updatedTransactions = state.transactions.filter(transaction => transaction.id !== id);
+    saveToLocalStorage(updatedTransactions);
   }
 
   function addTransaction(transaction) {
